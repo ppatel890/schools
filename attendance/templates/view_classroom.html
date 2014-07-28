@@ -1,0 +1,20 @@
+{% extends "base_template.html" %}
+
+{% block title%}{{ classroom.name }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ classroom.name }}</h1>
+
+    <h3>Students</h3>
+    {% for student in students %}
+        <p><a href="{% url "view_student" student.id %}">{{ student.name }}</a></p>
+    {% endfor%}
+
+    <hr>
+    <p><a href="{% url "new_student" %}">Add a new Student</a></p>
+    <hr><hr>
+    <p><a href="{% url "take_attendance" classroom.id %}">Take attendance </a> </p>
+
+
+    <p><a href="{% url "profile" %}">Back to Profile</a></p>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base_template.html" %}
+
+{% block title%}{{ student.name }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ student.name }}</h1>
+    <h3>Parent Contact Information</h3>
+    <p>Parent Email: {{ student.parent_email }}</p>
+    <p>Parent Phone: {{ student.parent_phone }}</p>
+    <p>Absences: {{ absences }}</p>
+
+    <h3>Classes</h3>
+    {% for classroom in classrooms %}
+        <p><a href="{% url "view_classroom" classroom.id %}">{{ classroom.name }}</a> </p>
+    {% endfor %}
+{% endblock content %}

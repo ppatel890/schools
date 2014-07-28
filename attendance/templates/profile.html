@@ -1,0 +1,14 @@
+{% extends "base_template.html" %}
+
+{% block title %}Profile Page{% endblock title %}
+
+{% block content %}
+    <h1>Welcome to the Attendance Portal {{ user.first_name }} </h1>
+    <h3>Here are your current classes:</h3>
+    {% for classroom in classrooms %}
+        <p><a href="{% url "view_classroom" classroom.id %}">{{ classroom.name }}</a></p>
+    {% endfor %}
+
+    <hr/>
+    <p><a href="{% url "new_classroom" %}">Add a new Classroom</a> </p>
+{% endblock content %}

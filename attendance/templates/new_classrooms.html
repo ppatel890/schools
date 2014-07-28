@@ -1,0 +1,12 @@
+{% extends  'base_template.html'%}
+
+{% block title%}Add Classroom{% endblock title %}
+
+{% block content %}
+    <h1>Add a new classroom</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add new Classroom">
+    </form>
+{% endblock content %}3
